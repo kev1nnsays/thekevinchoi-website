@@ -19,31 +19,109 @@ img {
 .wrapper {
     position: relative;
     padding: 0;
-    /*width:100px;*/
-    display:block;
+    height:240px;
+    display:block
 }
-.text {
+.textOverlay {
     position: absolute;
-    top: 0;
     color:0066FF;/*#f00;*/
     background-color:rgba(255,255,255,0.8);
-    width: 320px;
+    width: 240px;
     height: 240px;
-    line-height:30px;
+    /*line-height:30px;*/
+	vertical-align: middle;
     text-align: center;
-    vertical-align: middle;
     z-index: 10;
     opacity: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+	
 }
-.text:hover {
+.textOverlay:hover {
     opacity:1;
 }
 
-
 img {
     z-index:1;
+}
+
+
+
+
+ul.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul.img-list li {
+  display: inline-block;
+  height: 240px;
+  margin: 0.5em 1em 1em 0;
+  position: relative;
+  width: 240px;
+}
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 240px;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 240px;
+  opacity: 0;
+}
+
+ul.img-list li:hover span.text-content {
+  opacity: 1;
+}
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 240px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+
+figure {
+    display: table;
+	position:relative;
+    width: 240px; /* This can be any width, so long as it's narrower than any image */
+}
+img, figcaption {
+    display: table-row;
+	text-align: left;
 }
