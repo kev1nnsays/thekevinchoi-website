@@ -42,7 +42,7 @@ img {
 .text:hover {
     opacity:1;
 }
-
+}
 
 img {
     z-index:1;
