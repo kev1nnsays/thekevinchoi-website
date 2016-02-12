@@ -140,6 +140,16 @@ a:focus{
 	position: relative;
 	background: url('../img/cover.jpg');
 	background-size: cover;
+	max-height: 70vw;
+	color: #fff;
+}
+
+.jumbotron.subpage{
+	text-align: center;
+	position: relative;
+	background: url('../img/cover.jpg') !important;
+	background-size: cover;
+	max-height: 40vw !important;
 	color: #fff;
 }
 
