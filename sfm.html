@@ -61,7 +61,7 @@
 					<div class="topic-item">
 
 						
-						<h3>Exploring Images in 3D!</h3>
+						<h3>Generating 3D maps from 2D images!</h3>
 						<p>Structure from Motion (SfM) takes a series of images, such as a video, and recreates the scene in 3D (structure) and traces the path that the camera took through the environment (motion). The structure-from-motion problem has only recently been solved yet it's impact in various fields has been enormous. It has allowed researchers to map out an entire city using pictures crowd-sourced from Flickr and Hollywood directors to insert computer generated characters into their scenes without green screens.
 						</p>
 						<center>
@@ -69,7 +69,7 @@
 							<img class="topic-resize" src="./img/projects/sfm/image14.gif" />
 							<img class="topic-resize" src="./img/projects/sfm/image20.gif" />
 						</div>
-						<p>3D points from 2D images</p>
+						<p>Generated 3D points from 2D images</p>
 						</center>
 					</div>
 				</div>
@@ -91,25 +91,50 @@
 					</div>
 				</div>
 
+				<div >
+					<div class="topic-item">
+						
+						<h3>Estimating Camera Locations</h3>
+						<p> What follows is a whole bunch of calculations to figure out where the pictures were taken in the real world relative to each other. Let's just take two pictures, from Camera 1 and 2. From one frame to the next, the camera can move up, down, left, right, and tilt in three different axes. Using the Fundamental matrix we can calculate four potential positions for Camera 2 relative to Camera 1. The trick to finding the right one is to triangulate the matched points from the previous step and pick the candidate that puts the most points in front of both cameras. Even after all these calculations, we only know the general direction of where Camera 2 lies, but not how far away it lies. We assume Camera 2 lies one unit away (unless we're given how big something in the picture is)and scale Camera 3,4,5... locations accordingly. If you're interested in all the math behind this check out my <a href = "https://docs.google.com/presentation/d/1ypGyTB3a5fSXWlj8nby5Hz1VKwRKb62v6w6dUSrxw3M/edit?usp=sharing"> presentation </a>.
+						</p>
+						<center>
+						<div class="topic-wrapper">
+								<img class="topic-resize" src="./img/projects/sfm/motionCalc.JPG" />
+								
+								<img class="topic-resize" src="./img/projects/sfm/triangulate.jpg" />
+								<p>Lots of calculations to estimate camera locations</p>
+
+								<img class="topic-resize" src="./img/projects/sfm/cameraTranslate.JPG" />
+								<p>Figuring out virtual camera locations by triangulating matched features</p>
+								
+						</div>
+						</center>
+					</div>
+				</div>				
+
 
 				<div >
 					<div class="topic-item">
 						
 						<h3>Results</h3>
-						<p>Structure from motion works indoors and outdoors, as long as the feature detection algorithm can detect "interesting points" (blank walls are a problem).
+						<p>Structure from motion works indoors and outdoors, as long as the feature detection algorithm can detect "interesting points" (blank walls are a problem). Our quantified results are listed in our <a href = "img/projects/sfm/StructureFromMotion.pdf">paper</a>. 
 						</p>
 						<center>
 						<div class="topic-wrapper">
 							<img class="topic-resize" src="./img/projects/sfm/image26.gif" />
 							<img class="topic-resize" src="./img/projects/sfm/outside.JPG" />
 						</div>
+						<p>Outside Stacks Auditorium in UMich.</p>
 						</center>
 						<center>
 						<div class="topic-wrapper">
 							<img class="topic-resize" src="./img/projects/sfm/image30.gif" />
 							<a href="./img/projects/sfm/image28.gif"><img class="topic-resize" src="img/projects/sfm/image28.gif" /></a>
 						</div>
+						<p>Indoor scene of ruler, can, eraser, and tape</p>
 						</center>
+						<p><br>What's really interesting here is that we can take any video (even from Youtube) and "reconstruct" the scene with 3D points. This method can also be used to give robots a sense of their surroundings with only one camera; this is also known as Visual Simultaneous Location and Mapping (VSLAM). </p>
+
 					</div>
 				</div>
 				<!--<div class="col-md-4">
@@ -132,14 +157,25 @@
 	
 	<!-- Portfolio section end -->
 	<!-- Contact section start -->
-	
+	<section id="contact">
+		<div class="container">
+			<header>
+				<h2>Project Paper and Code</h2>
+				<p><a href = "img/projects/sfm/StructureFromMotion.pdf">Project Paper</a>
+					<br>
+				<a href = "https://github.com/kev1nnsays/StructureFromMotion/tree/master">Matlab Code</a>
+				</p>
+			</header>
+
+		</div>
+	</section>
 	<!-- Contact section end -->
 	<!-- Footer start -->
 	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
-					<p>&copy; 2015 Template by <a href="http://graphberry.com" target="_blank">GraphBerry</a></p>
+					<p>Updated 2/2016 by Kevin Choi</p>
 				</div>
 	
 			</div>
