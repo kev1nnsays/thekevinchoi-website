@@ -300,3 +300,19 @@ google.maps.event.addDomListener(window, 'load', initializeMap);
 google.maps.event.addDomListener(window, 'resize', function() {
     map.setCenterWithOffset(myLangLat, 0, -55);
 });
+
+
+//This is for enlarging images
+$(document).ready(function() {
+        var imageLinks = $('a[href$=".png"], a[href$=".jpg"], a[href$=".gif"], a[href$=".bmp"]');
+        if (imageLinks.children('img').length) {
+            imageLinks.children('img').each(function() {
+                var currentTitle = $(this).attr('title');
+                $(this).attr('title', currentTitle + ' (click to enlarge image)');
+            });
+            imageLinks.click(function(e) {
+                e.preventDefault();
+                $(this).children('img').toggleClass('expanded');
+            });
+        }
+    });
