@@ -511,10 +511,3 @@ figcaption {
 
 }
 
-img {
-    height: auto;
-    max-width: 100%;
-}
-img.expanded {
-    max-width: none;
-}
