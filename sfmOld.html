@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Structure From Motion by kev1nnsays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Structure from Motion</h1>
+      <h2 class="project-tagline"></h2>
+    </section>
+
+    <section class="main-content">
+	    <p> <a href = "index.html">Back to Home</a>
+	    </p>
+      <h3>
+<a id="SfM-overview" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recreating 3D Scene from 2D Images</h3>
+
+<p>Structure from Motion (SfM) takes a series of images, such as a video, and recreates the scene in 3D (structure) and traces the path that the camera took through the environment (motion). The structure-from-motion problem has only recently been solved yet it's impact in various fields has been enormous. It has allowed researchers to map out an entire city using pictures crowd-sourced from Flickr and Hollywood directors to insert computer generated characters into their scenes without green screens. 
+</p>
+<center>
+<img src="./images/sfm/image14.gif" alt="HTML5 Icon" style="width:400px;height:300px;">
+<img src="./images/sfm/image20.gif" alt="HTML5 Icon" style="width:400px;height:300px;">
+</center>
+
+<h3>
+<a id="SfM-instruct" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extracting Features and the Fundamental Matrix</h3>
+
+<p>
+To correlate the motion between several images we must first extract the features between pairs of images. We use can use the <a href= "https://en.wikipedia.org/wiki/Corner_detection">Harris Corner Detector</a> or the more robust <a href = "https://en.wikipedia.org/wiki/Speeded_up_robust_features">Speeded-Up-Robust-Features (SURF)</a> detector. By finding matching points between images we can begin to find the relationship between the cameras, which is embedded in the Fundamental Matrix. The Fundamental Matrix operates on a point on Image 1 and creates corresponding epipolar line on Image 2, which should pass through the matching point on Image 2.  
+</p>
+
+<center>
+	<figure>
+	<img src="./images/sfm/image03.png" alt="HTML5 Icon" style="width:800px;height:300px;">
+	<figcaption> Matching points between images. </figcaption>
+	</figure>
+	<figure>
+	<img src="./images/sfm/image04.png" alt="HTML5 Icon" style="width:400px;height:300px;">
+	</figure>
+</center>
+
+      <footer class="site-footer">
+
+      </footer>
+
+	<span class="site-footer-credits">For more information email me at thekevinchoi@gmail.com. Samples of my code are available on <a href=https://bitbucket.org/kev1nnsays>https://bitbucket.org/kev1nnsays</a>.</span>
+
+    </section>
+
+  
+  </body>
+</html>
