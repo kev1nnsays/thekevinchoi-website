@@ -22,7 +22,9 @@
 // Close offsite navigation after user click on an link in navigation.
 $('.menu  a').on('click', function(e) {
     e.preventDefault();
+    // document.location.href = $(this).val();
     $('nav').removeClass('nav-expanded');
+
 });
 
 
@@ -303,16 +305,16 @@ google.maps.event.addDomListener(window, 'resize', function() {
 
 
 //This is for enlarging images
-$(document).ready(function() {
-        var imageLinks = $('a[href$=".png"], a[href$=".jpg"], a[href$=".gif"], a[href$=".bmp"]');
-        if (imageLinks.children('img').length) {
-            imageLinks.children('img').each(function() {
-                var currentTitle = $(this).attr('title');
-                $(this).attr('title', currentTitle + ' (click to enlarge image)');
-            });
-            imageLinks.click(function(e) {
-                e.preventDefault();
-                $(this).children('img').toggleClass('expanded');
-            });
-        }
-    });
+// $(document).ready(function() {
+//         var imageLinks = $('a[href$=".png"], a[href$=".jpg"], a[href$=".gif"], a[href$=".bmp"]');
+//         if (imageLinks.children('img').length) {
+//             imageLinks.children('img').each(function() {
+//                 var currentTitle = $(this).attr('title');
+//                 $(this).attr('title', currentTitle + ' (click to enlarge image)');
+//             });
+//             imageLinks.click(function(e) {
+//                 e.preventDefault();
+//                 $(this).children('img').toggleClass('expanded');
+//             });
+//         }
+//     });
