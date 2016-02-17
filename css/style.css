@@ -499,8 +499,6 @@ figcaption {
 }
 
 
-
-
 .topic-wrapper {
 	width:100%; /*960/1640 = .58536585*/ margin:0 auto;
 
@@ -510,4 +508,64 @@ figcaption {
 	max-height: 20vw !important;
 
 }
+
+.topic-span{
+	background-size: cover;
+}
+
+#motoX2{
+	background: url(../img/motoXcover.jpg) 50% no-repeat; 
+    height: 600px;  
+	margin: 0 auto; 
+    max-width: 1920px;
+    position: relative; 
+}
+
+/*Parallax*/
+#motoXcover { 
+	/*background: url(../img/motoXcover.jpg) 50% 100% no-repeat fixed; */
+	background: url(../img/projects/motox/selection2.png) 50% no-repeat fixed; 
+
+	height: 600px;  
+	margin: 0 auto; 
+    max-width: 1920px;
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+#motoXwheel { 
+	/*background: url(../img/motoXcover.jpg) 50% 100% no-repeat fixed; */
+	background: url(../img/projects/motox/motox_wheel.jpg) 50% 25% no-repeat fixed; 
+	height: 400px;  
+	margin: 0 auto; 
+    max-width: 1920px;
+    position: relative; 
+    /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
+}
+
+#about { 
+	background: url(../images/about.jpg) 50% 0 no-repeat fixed; 
+	height: 1000px;
+	margin: 0 auto; 
+    width: 100%; 
+    max-width: 1920px; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+#home article { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  width: 100%; 
+}
+/* Introduction */
+
+/*#home article { background: url("../img/motoXcover.jpg") no-repeat scroll center top transparent; height: 458px; position: absolute; text-indent: -9999px; top: 291px; width: 100%; }
+
+#about article { background: url("../images/parallax.png") no-repeat scroll center top transparent; height: 458px; position: absolute; text-indent: -9999px; top: 291px; width: 100%; }
+
+*/
+
 
