@@ -47,7 +47,7 @@
 		</nav>
 		<div class="container">
 			<div class="header-info">
-				<h1>Moto X</h1>
+				<h1>Perching Quadcopter</h1>
 
 			</div>
 		</div>
@@ -66,40 +66,78 @@
 						<h3>Perching like a bird.</h3>
 
 						<p>
-							In this project we design a quadcopter that can do something that's never been attempted: land like a bird. A robotic end effector is mounted on a Sky Specs quadcopter 
+							In this project we design a quadcopter that can do something that's never been attempted: land like a bird. A robotic end effector is mounted on a Sky Specs quadcopter
+							and is used to grab on to a bar for landing. Although the quadcopter has an onboard flight controller, a pilot will still struggle to keep
+							the quadcopter in place because there are external forces acting on it such as decreases in air pressure when a door opens or ground effects. 
+							We designed an "outer-loop" controller that adjusts thrust, roll, pitch, and yaw and replaces the pilot control; this allows the 
+							quadcopter to hold its location precisely and to navigate to virtual waypoints. 
+							We also implemented a state machine that identifies when the quadcopter is close to the bar and initiates a landing sequence. 
 						</p>
 
-						<center>
-							<iframe width="100%" height="500px" src="https://www.youtube.com/embed/dLuwkrbhmYU" frameborder="0" allowfullscreen></iframe>
-
 						
-						</center>
 					</div>
 				</div>
 			</div>
 	</section>
-	<section id="motoXwheel" data-speed="4" data-type="background">  
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item">
+
+						
+						<h3>Tuning, tuning, tuning...</h3>
+
+						<p>
+							By far the most time consuming portion of the project was tuning the controller so that the quadcopter could hold its position on a waypoint. 
+							An Optitrack System locates the quadcopter via five infrared reflective dots on the quadcopter and sends the position data to the quadcopter's Beaglebone
+							by ethernet. In the videos below you'll see two spotters holding cables attached to the quadcopter; they're for safety, in case the quadcopter malfunctions, and 
+							for the ethernet cable. We initialized our PID feedback controller values based on a pilot's input when he tried to keep the quadcopter hovering in place; the 
+							control values were processed in Matlab Simulink's System Identification Toolbox. Next, we would record test flight data and try to understand which values needed to 
+							be tuned. For example, if the quadcopter navigated to the setpoint but drifted slowly backwards, we would increase the differential-term of the pitch controller. 
+						</p>
+
+						
+					</div>
+				</div>
+			</div>
 	</section>
+	<center>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/_5daOb5wnqY" frameborder="0" allowfullscreen></iframe>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/sx9YMXxr5JA" frameborder="0" allowfullscreen></iframe>
+	<p> In the second video you can see that the quadcopter is more stable under autonomous control than in the pilot's hands. </p>
+	</center>
+	
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item">
+						<h3>Gripper Design</h3>
+						The gripper needed to be able to keep the quadcopter on the rod with up to a 6 degree tilt (no landing is perfect!). Based
+						on the weight of the quadcopter we designed a gripper with a little over 2 Nm. of gripping torque. The blue pads on the finger tips
+						are silicone rubber for increased friction. The gripper was 3D printed using ABS plastic and is actuated by one AX-12 servo. 
+						<center>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/BGDjm73NNRU" frameborder="0" allowfullscreen></iframe>
+						</center>
+					</div>
+				</div>
 
+			</div> 
+		</div>
+	</section>
+	
 	<section id="topics">
 		<div class="container">
 			<div class="row">
 				<div >
 					<div class="topic-item">
 						
-						<h3>New, Unique, and Different Challenges</h3>
-						<p> I designed and developed the architecture for leather composite parts which was used in three flagship products. As a NUD owner I had to establish a new mechanical design for leather parts such that they retained their quality feel but add little thickness to the phone and remain durable for several years. This also required pioneering new manufacturing techniques, testing specifications, and material sourcing channels. I worked with Horween, a historical tannery based in Chicago, and manufacturing centers in Shenzhen, China to perfect and scale the product. 
-						</p>
+						<h3>Competition Day</h3>
+						On the day of competition we were able to accomplish all the tasks: autonomous position-hold, waypoint navigation, autonomous perching and liftoff.  
 						<center>
-						<div class="topic-wrapper">
-							<img class="topic-cover" src="./img/projects/motox/development.jpg" width="100%"/>
-						</div>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/8oKRUzhoxSQ" frameborder="0" allowfullscreen></iframe>
 						</center>
-						<p> During the prototyping phase of the project, I was an on-site interface for the China base suppliers to root cause manufacturing issues, drive schedules, and support ramp up of production parts. I applied Six-Sigma principles to decrease defective parts below 0.001%. 
-						</p>
-						<img class="topic-cover" src="./img/motoXcover.jpg" width="100%"/>
 					</div>
 				</div>
 
@@ -108,8 +146,11 @@
 	</section>
 
 
-	<section id="motoXcover" data-speed="4" data-type="background">  
-	</section>
+<!-- 	<section id="quadTeam" data-speed="4" data-type="background">  
+	</section> -->
+	<div>
+				<img src="img/projects/quad/team.jpg" class="img-responsive">
+	</div>
 	<!-- Services section end -->
 
 	<!-- Services section end -->
@@ -122,9 +163,7 @@
 			<header>
 				<h2>Product Sites</h2>
 				<p>
-					<a href = "http://www.motorola.in/Moto-X/moto-x-in.html" target="_blank">Moto X (Gen. 1)</a>
-					<br>
-					<a href = "https://www.motorola.com/us/motomaker?pid=FLEXR2" target="_blank">Moto X (Gen. 2)</a>
+					<a href = "https://github.com/kev1nnsays/quadcopter_team13" target="_blank">Quadcopter Code</a>
 				</p>
 			</header>
 		</div>
