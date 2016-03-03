@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<!--
+ * A Design by GraphBerry
+ * Author: GraphBerry
+ * Author URL: http://graphberry.com
+ * License: http://graphberry.com/pages/license
+-->
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kevin Choi's Site.</title>
+
+	<!-- Load fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+	<!-- Load css styles -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+
+
+
+
+</head>
+<body>
+	<div class="jumbotron subpage home home-fullscreen" id="home">
+		<div class="mask"></div>
+		<a href="#" class="logo">
+			<img src="img/profilepic2.png" alt="Moderno - Theme by GraphBerry.com">
+		</a> 
+		<a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+		<!-- Offsite navigation -->
+		<nav class="menu">
+			<a href="#" class="close"><i class="fa fa-close"></i></a>
+			<h3>Menu</h3>
+			<ul class="nav">
+				<ul class="nav">
+				<li><a data-scroll href="" onclick="parent.location='index.html'">Home</a></li>
+				<li><a data-scroll href="" onclick="parent.location='index.html#portfolio'">Portfolio</a></li>
+				<li><a data-scroll href="" onclick="parent.location='index.html#contact'">Contact</a></li>
+			</ul>
+			</ul>
+
+		</nav>
+		<div class="container">
+			<div class="header-info">
+				<h1>Maebot: Mobile Robot</h1>
+
+			</div>
+		</div>
+	</div>
+	<!-- Services section start -->
+
+
+	<!-- Services section start -->
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item">
+
+						
+						<h3>Maze Runner</h3>
+
+						<p>
+						The objective of this project was to program a rover (APRIL Lab Maebot), equiped with a laser radar (Lidar), to navigate a maze towards a goal point. 
+						Using Similtaneous Location and Mapping (SLAM), we could locate the robot relative to the walls of the maze and create a map of our measurements.
+						The map of the course was built on the fly, so the robot had to use a path planner to decide where to travel based on new incoming data. 
+						Lastly, SLAM played a role in trajectory correction, as the robot's movement was not perfect due to dirt on the ground or misaligned wheels. 
+						
+						</p>
+					</div>
+				<!-- </div>
+			</div>
+	</section>
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item">	 -->			
+						<h3>Motor Control and Odometry</h3>
+						<p>
+							The Maebot is driven by two DC motors with encoders which is controlled by two PID velocity controllers. The Maebot
+							can transverse a path by odometry but will accumulate error due to intrinsic and extrinsic errors. Intrinsic errors
+							occur from the system itself, such as the wheels not being the same size. Extrinsic errors occur because of the environment, 
+							such as wheel slippage or nonflat regions of the floor. In the following video, the Maebot is suppose to travel around a square
+							as marked by the tape but you can see it drifts off course. 
+							<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/-GCA6EJtu-s" frameborder="0" allowfullscreen></iframe>
+							</center>
+						</p>					
+<!-- 					</div>
+				</div>
+			</div>
+	</section>
+	
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item"> -->
+						<h3>SLAM and Path Planning</h3>
+						Rather than localize the robot using odometry, we used the Lidar to scan the environment and keep track of landmarks to determine its position.
+						We used the A* (A-star) algorithm to plan a path through the environment. An extracted portion of my A* python code can be found below in the code section. 
+						<center>
+						<iframe width="420" height="315" src="https://www.youtube.com/embed/o42CBWYbugk" frameborder="0" allowfullscreen></iframe>
+						</center>
+<!-- 					</div>
+				</div>
+
+			</div> 
+		</div>
+	</section>
+	
+	<section id="topics">
+		<div class="container">
+			<div class="row">
+				<div >
+					<div class="topic-item"> -->
+						
+						<h3>Competition Day</h3>
+						Although our robot was very good at getting to the goal without collisions, improvements can be made to speed by assigning multiple navigation points after every "mapping" step. 
+						Our implementation erred on the side of caution by checking for imminent wall collisions every step of the way, which drastically slowed the robot down.   
+						<center>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/FS3CcJP-anc" frameborder="0" allowfullscreen></iframe>
+						</center>
+					</div>
+				</div>
+
+			</div> 
+		</div>
+	</section>
+
+
+<!-- 	<section id="quadTeam" data-speed="4" data-type="background">  
+	</section> -->
+
+	<!-- Services section end -->
+
+	<!-- Services section end -->
+	<!-- Portfolio section start -->
+	
+	<!-- Portfolio section end -->
+	<!-- Contact section start -->
+	<section id="contact">
+		<div class="container">
+			<header>
+				<h2>Code and Paper</h2>
+				<p>
+					<a href = "https://github.com/kev1nnsays/Maebot_Lab.git" target="_blank">Maebot Code</a>
+					<br>
+					<a href = "https://github.com/kev1nnsays/Maebot_Lab.git" target="_blank">A* Code</a>
+					<br>
+					<a href = "img/projects/maebot/botlab-project-report.pdf" target="_blank">Maebot Project Paper</a>
+					
+				</p>
+			</header>
+		</div>
+	</section>
+	<!-- Contact section end -->
+	<!-- Footer start -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>Updated 2/2016 by Kevin Choi</p>
+				</div>
+	
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end  -->
+
+	<!-- Load jQuery -->
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+
+	<!-- Load Booststrap -->
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="js/smooth-scroll.js"></script>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	<!-- Load custom js for theme -->
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
