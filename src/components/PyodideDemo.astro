@@ -1,0 +1,79 @@
+---
+---
+
+<section class="rounded-lg border border-black/10 dark:border-white/15 p-5 bg-black/5 dark:bg-white/5">
+  <div class="flex flex-col gap-2">
+    <h2 class="text-xl font-semibold text-black dark:text-white">Python (Pyodide)</h2>
+    <p class="text-sm">
+      This demo runs Python in the browser using Pyodide. It loads on demand from a CDN.
+    </p>
+
+    <label class="text-sm mt-2">
+      Python code
+      <textarea id="py-code" class="mt-2 w-full min-h-[140px] p-3 rounded border border-black/15 dark:border-white/20 bg-white/90 dark:bg-black/50 text-sm">print("Hello from Pyodide")
+for i in range(3):
+    print(i)</textarea>
+    </label>
+
+    <div class="flex flex-wrap gap-3 items-center">
+      <button id="py-run" class="px-3 py-1.5 rounded border border-black/15 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10">
+        Run
+      </button>
+      <span id="py-status" class="text-xs opacity-70"></span>
+    </div>
+
+    <pre id="py-output" class="mt-3 p-3 rounded bg-white/70 dark:bg-black/40 border border-black/10 dark:border-white/15 text-sm overflow-auto"></pre>
+  </div>
+</section>
+
+<script type="module">
+  const statusEl = document.getElementById("py-status");
+  const outputEl = document.getElementById("py-output");
+  const codeEl = document.getElementById("py-code");
+  const runButton = document.getElementById("py-run");
+
+  let pyodide;
+
+  const setStatus = (message) => {
+    if (statusEl) statusEl.textContent = message;
+  };
+
+  const setOutput = (message) => {
+    if (outputEl) outputEl.textContent = message;
+  };
+
+  const loadPyodideScript = async () => {
+    if (window.loadPyodide) return window.loadPyodide;
+    return await new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js";
+      script.onload = () => resolve(window.loadPyodide);
+      script.onerror = () => reject(new Error("Failed to load Pyodide"));
+      document.head.appendChild(script);
+    });
+  };
+
+  const initPyodide = async () => {
+    if (pyodide) return pyodide;
+    setStatus("Loading Pyodide...");
+    const loadPyodide = await loadPyodideScript();
+    pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/" });
+    setStatus("Pyodide ready");
+    return pyodide;
+  };
+
+  runButton?.addEventListener("click", async () => {
+    try {
+      const instance = await initPyodide();
+      const code = codeEl?.value ?? "";
+      const output = await instance.runPythonAsync(code);
+      if (output !== undefined) {
+        setOutput(String(output));
+      } else {
+        setOutput("(no return value)\nCheck console output for prints.");
+      }
+    } catch (error) {
+      setOutput(error?.message ?? "Python execution failed.");
+    }
+  });
+</script>

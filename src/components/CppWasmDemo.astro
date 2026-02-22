@@ -1,0 +1,85 @@
+---
+---
+
+<section class="rounded-lg border border-black/10 dark:border-white/15 p-5 bg-black/5 dark:bg-white/5">
+  <div class="flex flex-col gap-2">
+    <h2 class="text-xl font-semibold text-black dark:text-white">C++ (WebAssembly)</h2>
+    <p class="text-sm">
+      This demo loads a standalone WebAssembly module from
+      <code>/demos/cpp/hello.wasm</code> and calls an exported <code>add(a, b)</code> function.
+      Build your module with Emscripten and place it in <code>public/demos/cpp/</code>.
+    </p>
+    <details class="text-sm">
+      <summary class="cursor-pointer">Example build command</summary>
+      <div class="mt-2 text-xs opacity-80">
+        emcc hello.cpp -O3 -s STANDALONE_WASM=1 -Wl,--export=add -Wl,--no-entry -o public/demos/cpp/hello.wasm
+      </div>
+    </details>
+
+    <div class="flex flex-wrap gap-3 items-end mt-2">
+      <label class="text-sm">
+        A
+        <input id="cpp-input-a" class="ml-2 px-2 py-1 rounded border border-black/15 dark:border-white/20 bg-white/90 dark:bg-black/50" type="number" value="3" />
+      </label>
+      <label class="text-sm">
+        B
+        <input id="cpp-input-b" class="ml-2 px-2 py-1 rounded border border-black/15 dark:border-white/20 bg-white/90 dark:bg-black/50" type="number" value="4" />
+      </label>
+      <button id="cpp-run" class="px-3 py-1.5 rounded border border-black/15 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10">
+        Run
+      </button>
+      <span id="cpp-status" class="text-xs opacity-70"></span>
+    </div>
+
+    <pre id="cpp-output" class="mt-3 p-3 rounded bg-white/70 dark:bg-black/40 border border-black/10 dark:border-white/15 text-sm overflow-auto"></pre>
+  </div>
+</section>
+
+<script type="module">
+  const statusEl = document.getElementById("cpp-status");
+  const outputEl = document.getElementById("cpp-output");
+  const runButton = document.getElementById("cpp-run");
+  const inputA = document.getElementById("cpp-input-a");
+  const inputB = document.getElementById("cpp-input-b");
+
+  let wasmInstance;
+
+  const setStatus = (message) => {
+    if (statusEl) statusEl.textContent = message;
+  };
+
+  const setOutput = (message) => {
+    if (outputEl) outputEl.textContent = message;
+  };
+
+  const loadWasm = async () => {
+    if (wasmInstance) return wasmInstance;
+    setStatus("Loading wasm...");
+    const response = await fetch("/demos/cpp/hello.wasm");
+    if (!response.ok) {
+      setStatus("Missing wasm module");
+      throw new Error("/demos/cpp/hello.wasm not found. Build and place the file in public/demos/cpp/");
+    }
+    const { instance } = await WebAssembly.instantiateStreaming(response);
+    wasmInstance = instance;
+    setStatus("Wasm loaded");
+    return instance;
+  };
+
+  runButton?.addEventListener("click", async () => {
+    try {
+      const instance = await loadWasm();
+      const add = instance.exports?.add;
+      if (typeof add !== "function") {
+        setOutput("Exported function 'add' not found. Ensure your WASM exports add(a, b).\n");
+        return;
+      }
+      const a = Number(inputA?.value ?? 0);
+      const b = Number(inputB?.value ?? 0);
+      const result = add(a, b);
+      setOutput(`add(${a}, ${b}) = ${result}`);
+    } catch (error) {
+      setOutput(error?.message ?? "Failed to load wasm module.");
+    }
+  });
+</script>

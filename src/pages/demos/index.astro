@@ -1,0 +1,27 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import CppWasmDemo from "@components/CppWasmDemo.astro";
+import PyodideDemo from "@components/PyodideDemo.astro";
+import { DEMOS } from "@consts";
+---
+
+<PageLayout title={DEMOS.TITLE} description={DEMOS.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate">
+      <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
+        {DEMOS.TITLE}
+      </h1>
+      <div class="mt-1">
+        {DEMOS.DESCRIPTION}
+      </div>
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate flex flex-col gap-6">
+      <CppWasmDemo />
+      <PyodideDemo />
+    </div>
+  </BottomLayout>
+</PageLayout>
