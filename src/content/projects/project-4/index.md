@@ -1,6 +1,7 @@
 ---
 title: "Project Four"
 summary: "Lorem ipsum dolor sit amet"
+image: "/images/projects/placeholder.svg"
 date: "Mar 15 2022"
 draft: false
 tags:

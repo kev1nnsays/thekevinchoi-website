@@ -7,8 +7,21 @@ type Props = {
 }
 
 export default function ArrowCard({ entry, pill }: Props) {
+  const isProject = entry.collection === "projects"
+  const imageSrc = isProject ? entry.data.image : undefined
+
   return (
     <a href={`/${entry.collection}/${entry.slug}`} class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+      {isProject && imageSrc && (
+        <div class="shrink-0 w-20 h-20 rounded-md overflow-hidden border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/10">
+          <img
+            src={imageSrc}
+            alt={`${entry.data.title} graphic`}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
       <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
         <div class="flex flex-wrap items-center gap-2">
           {pill &&
