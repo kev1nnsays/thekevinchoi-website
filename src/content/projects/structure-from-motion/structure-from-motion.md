@@ -28,11 +28,11 @@ Epipolar lines showing relative motion of camera
 
 What follows is a whole bunch of calculations to figure out where the pictures were taken in the real world relative to each other. Let's just take two pictures, from Camera 1 and 2. From one frame to the next, the camera can move up, down, left, right, and tilt in three different axes. Using the Fundamental matrix we can calculate four potential positions for Camera 2 relative to Camera 1. The trick to finding the right one is to triangulate the matched points from the previous step and pick the candidate that puts the most points in front of both cameras. Even after all these calculations, we only know the general direction of where Camera 2 lies, but not how far away it lies. We assume Camera 2 lies one unit away (unless we're given how big something in the picture is) and scale Camera 3,4,5... locations accordingly. If you're interested in all the math behind this check out my [presentation](https://docs.google.com/presentation/d/1ypGyTB3a5fSXWlj8nby5Hz1VKwRKb62v6w6dUSrxw3M/edit?usp=sharing).
 
-![Lots of calculations to estimate camera locations](./media/motionCalc.JPG)
-![Lots of calculations to estimate camera locations](./media/triangulate.jpg)
+![Lots of calculations to estimate camera locations](./media/motionCalc.jpeg)
+![Lots of calculations to estimate camera locations](./media/triangulate.jpeg)
 Lots of calculations to estimate camera locations
 
-![Figuring out virtual camera locations by triangulating matched features](./media/cameraTranslate.JPG)
+![Figuring out virtual camera locations by triangulating matched features](./media/cameraTranslate.jpeg)
 Figuring out virtual camera locations by triangulating matched features
 
 ## Results
@@ -40,7 +40,7 @@ Figuring out virtual camera locations by triangulating matched features
 Structure from motion works indoors and outdoors, as long as the feature detection algorithm can detect "interesting points" (blank walls are a problem). Our quantified results are listed in our [paper](./media/StructureFromMotion.pdf).
 
 ![Outside Stacks Auditorium in UMich](./media/image26.gif)
-![Outside Stacks Auditorium in UMich](./media/outside.JPG)
+![Outside Stacks Auditorium in UMich](./media/outside.jpeg)
 Outside Stacks Auditorium in UMich.
 
 ![Indoor scene of ruler, can, eraser, and tape](./media/image30.gif)
