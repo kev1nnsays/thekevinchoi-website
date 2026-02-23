@@ -35,6 +35,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -62,6 +64,8 @@ jobs:
 ```
 
 ## 3) Configure Astro for GitHub Pages
+
+If you store images with Git LFS, the checkout step must enable LFS (shown above). Otherwise Astro may fail to read image metadata in CI.
 
 If you are deploying a project page (https://username.github.io/repo-name), set a base path. Update [astro.config.mjs](../astro.config.mjs) like this:
 
