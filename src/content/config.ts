@@ -20,6 +20,15 @@ const work = defineCollection({
   }),
 });
 
+const education = defineCollection({
+  type: "content",
+  schema: z.object({
+    school: z.string(),
+    degree: z.string(),
+    dateRange: z.string().optional(),
+  }),
+});
+
 const projects = defineCollection({
   type: "content",
   schema: z.object({
@@ -32,4 +41,4 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { blog, work, projects };
+export const collections = { blog, work, education, projects };
