@@ -4,6 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "https://thekevinchoi.com",
+  site: "thekevinchoi.com",
   integrations: [mdx(), sitemap(), tailwind()],
 });
