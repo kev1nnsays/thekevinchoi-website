@@ -5,11 +5,21 @@ import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
 
-const collection = (await getCollection("work"))
+const workCollection = (await getCollection("work"))
   .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
 
+const educationCollection = (await getCollection("education"))
+  .sort((a, b) => a.data.school.localeCompare(b.data.school));
+
+const education = await Promise.all(
+  educationCollection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
+
 const work = await Promise.all(
-  collection.map(async (item) => {
+  workCollection.map(async (item) => {
     const { Content } = await item.render();
     return { ...item, Content };
   })
@@ -34,6 +44,31 @@ const work = await Promise.all(
               </div>
               <div class="text-sm opacity-75">
                 {entry.data.role}
+              </div>
+              <article>
+                <entry.Content />
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="animate font-semibold text-black dark:text-white">
+        Education
+      </div>
+      <ul class="flex flex-col space-y-4">
+        {
+          education.map(entry => (
+            <li class="animate">
+              {entry.data.dateRange && (
+                <div class="text-sm opacity-75">
+                  {entry.data.dateRange}
+                </div>
+              )}
+              <div class="font-semibold text-black dark:text-white">
+                {entry.data.school}
+              </div>
+              <div class="text-sm opacity-75">
+                {entry.data.degree}
               </div>
               <article>
                 <entry.Content />
