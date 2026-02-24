@@ -1,0 +1,101 @@
+---
+title: "Init"
+description: "Finally refreshing my personal site."
+date: "Feb 23 2026"
+---
+
+This is the first post on my new personal site, built with [Astro Nano](https://github.com/markhorn-dev/astro-nano).
+It'll serve as a resume of sorts, and a place to share my thoughts on programming, design, and whatever else I'm interested in.
+It'll also be a place to learn web development and create mini projects and live demos (in so far as I can with a static site).
+
+## Design Choices for the Site
+
+### Static Site Framework
+
+I want to create a site that was fast, accessible, and SEO-friendly. To start, there is no requirement to serve dynamic content,
+so I can get away with a static site generator, like Next.js, Gatsby, or Astro. I also wanted to use a modern framework with good
+developer experience, and one that was built for performance.
+
+<details>
+    <summary>Static Site Framework Trade Study</summary>
+    <p>
+
+    ### Astro
+
+    **Pros:**
+
+    - Zero JavaScript by default—HTML and CSS only
+    - Islands architecture: hydrate only interactive components
+    - Framework agnostic (React, Vue, Svelte, etc.)
+    - Built-in content collections with type safety
+    - Fastest for content-heavy sites
+
+    **Cons:**
+
+    - Smaller ecosystem
+    - Less suitable for highly interactive apps
+    - Newer, still evolving
+
+    **Best For:** Blogs, marketing sites, documentation, portfolios
+
+    ### Next.js
+
+    **Pros:**
+
+    - Industry standard with massive ecosystem
+    - Excellent DX with hot reload, TypeScript support
+    - Flexible rendering (SSG, SSR, ISR)
+    - Great for scaling from static to dynamic
+    - Vercel deployment is seamless
+
+    **Cons:**
+
+    - Ships more JavaScript than necessary for static sites
+    - React-only (framework lock-in)
+    - Requires more configuration for pure static sites
+    - Can feel like overkill for simple content sites
+
+    **Best For:** Apps that might need dynamic features, e-commerce, dashboards
+
+    ### Gatsby
+
+    **Pros:**
+
+    - Mature ecosystem with many plugins
+    - GraphQL data layer is powerful
+    - Good image optimization
+    - Strong PWA support
+
+    **Cons:**
+
+    - Slow build times on large sites
+    - GraphQL adds complexity for simple use cases
+    - Community momentum has shifted to Next.js/Astro
+    - Over-engineered for most static sites
+    - Heavy JavaScript bundle
+
+    **Best For:** Complex data sources, sites needing extensive plugins (legacy choice)
+
+    </p>
+
+</details>
+
+**Decision**: For a content-focused personal site, Astro was the clear winner:
+
+1. _Performance first:_ Minimal JS means fast load times
+2. _Content-native:_ Built-in content collections fit my blog/project structure
+3. _Future flexibility:_ Can add React/Vue components if needed
+4. _Learning opportunity:_ New framework with modern patterns
+
+Next.js would make sense if I needed server-side rendering or planned to add dynamic features
+like user authentication. Gatsby's complexity and build times didn't justify its benefits for
+my use case; also it's [dead](https://github.com/gatsbyjs/gatsby/discussions/39062).
+
+### Fast, Not Flashy
+
+Looking through https://astro.build/themes/ I was drawn to the minimalist themes that prioritized performance and content.
+I wanted the minimalism to be more than just skin deep - the code itself should be clean and efficient, without unnecessary dependencies or bloat.
+I (or an agent) can always add features as I go.
+
+**Decision**: [Astro Nano](https://astro.build/themes/details/astronano/) resonated with me the most. It's built by Mark Horn, 
+who has a great track record of creating high-quality, popular Astro themes like [Astro Sphere](https://astro.build/themes/details/astrosphere/).
