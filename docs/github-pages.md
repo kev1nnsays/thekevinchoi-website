@@ -12,11 +12,8 @@ The site is automatically built and deployed via GitHub Actions whenever you pus
 
 The workflow:
 1. Checks out the repo (including Git LFS files)
-2. Sets up Node.js 20 with npm cache
-3. Installs dependencies with `npm ci`
-4. Builds the site with `npm run build` (runs `astro check && astro build`)
-5. Uploads the `dist/` directory as a GitHub Pages artifact
-6. Deploys to GitHub Pages
+2. Uses the official `withastro/action@v5` to install dependencies, build the site, and upload the artifact (auto-detects npm from `package-lock.json`)
+3. Deploys to GitHub Pages
 
 ## Initial setup on GitHub
 
