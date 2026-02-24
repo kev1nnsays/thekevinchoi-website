@@ -4,7 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "https://www.thekevinchoi.com",
+  site: "http://kev1nnsays.github.io",
+  base: "/thekevinchoi-website",
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
