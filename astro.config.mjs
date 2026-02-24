@@ -4,8 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "http://kev1nnsays.github.io",
-  base: "/thekevinchoi-website",
+  site: "https://thekevinchoi-website.netlify.app",
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
